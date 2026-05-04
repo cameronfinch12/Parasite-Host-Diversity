@@ -32,3 +32,5 @@ DRE_PreFinal <- DRE_PreFinal %>%
       SOPI = if_else(Div == 0, as.integer(spp == "SOPI"), as.integer(spp != "SOPI"))
     )
 
+#hello friend
+
