@@ -30,3 +30,22 @@ DRE_PreFinal <- DRE_PreFinal %>%
     SOPI = if_else(Div == 0, as.integer(spp == "SOPI"), as.integer(spp != "SOPI"))
   )
 
+# Creating Action and Outcome Columns
+DRE_PreFinal_2 <- DRE_PreFinal %>%
+  rename(
+    ANVI.action = ANVI,
+    SEPA.action = SEPA,
+    TRFL.action = TRFL,
+    PAAN.action = PAAN,
+    SCIN.action = SCIN,
+    SOPI.action = SOPI
+  ) %>%
+  mutate(
+    ANVI.outcome = ANVI.action,
+    SEPA.outcome = SEPA.action,
+    TRFL.outcome = TRFL.action,
+    PAAN.outcome = PAAN.action,
+    SCIN.outcome = SCIN.action,
+    SOPI.outcome = SOPI.action
+  )
+  
