@@ -48,4 +48,21 @@ DRE_PreFinal_2 <- DRE_PreFinal %>%
     SCIN.outcome = SCIN.action,
     SOPI.outcome = SOPI.action
   )
+
+# Grouping Desirability Indexes, Then Get Rid of Them For Time 1
+desirability <- c(
+  'PlantS', 'S5', 'percov', 'Div', 'Res', 'divXres', 'n.plants'
+)
+
+DRE_PreFinal_3 <- DRE_PreFinal_2 %>%
+  relocate(
+    all_of(desirability), 
+    .after = SOPI.outcome
+  ) %>%
+  mutate(
+    across(all_of(desirability),
+      ~ if_else(time == 1, NA_real_, .) 
+    )
+  )
+
   
