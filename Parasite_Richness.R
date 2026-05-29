@@ -65,4 +65,5 @@ DRE_PreFinal_3 <- DRE_PreFinal_2 %>%
     )
   )
 
+  write_csv(DRE_PreFinal_3, "DRE_Final.csv")
   
