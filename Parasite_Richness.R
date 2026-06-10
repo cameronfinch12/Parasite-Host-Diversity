@@ -82,6 +82,5 @@ DRE_PreFinal_3 <- DRE_PreFinal_2 %>%
       Plot = str_remove_all(Plot, " 2014")
     )
 
-#Writing Final CSV
-  write_csv(DRE_Final_CSV, 'DRE_Final_CSV')
-    
+# Writing Final CSV
+  write_csv(DRE_Final_CSV, 'DRE_Final.csv')
