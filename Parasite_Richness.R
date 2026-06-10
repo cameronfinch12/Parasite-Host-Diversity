@@ -64,6 +64,24 @@ DRE_PreFinal_3 <- DRE_PreFinal_2 %>%
       ~ if_else(time == 1, NA_real_, .) 
     )
   )
-
+# Final draft sent for review
   write_csv(DRE_PreFinal_3, "DRE_Final.csv")
   
+# Deleting all 2012 rows to reduce redundancy, then removing the time column
+  DRE_PreFinal_4 <- DRE_PreFinal_3 %>%
+    filter(time != 1) %>%
+    select(-any_of(c('time')))
+  
+# Getting rid of the 2014 part of plot ID and moving it to the first column spot
+  DRE_Final_CSV <- DRE_PreFinal_4 %>%
+    relocate(
+      Plot,
+      .before = Blk
+    ) %>%
+    mutate(
+      Plot = str_remove_all(Plot, " 2014")
+    )
+
+#Writing Final CSV
+  write_csv(DRE_Final_CSV, 'DRE_Final_CSV'
+    
